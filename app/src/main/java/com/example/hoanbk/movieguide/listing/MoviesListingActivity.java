@@ -1,9 +1,11 @@
-package com.example.hoanbk.movieguide;
+package com.example.hoanbk.movieguide.listing;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.hoanbk.movieguide.R;
+
+public class MoviesListingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
