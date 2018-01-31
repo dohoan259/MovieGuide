@@ -12,19 +12,34 @@ import android.view.ViewGroup;
 
 import com.example.hoanbk.movieguide.R;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MoviesListingFragment.OnFragmentInteractionListener} interface
+ * {@link MoviesListingFragment.Callback} interface
  * to handle interaction events.
  */
 public class MoviesListingFragment extends Fragment {
 
     private Callback mCallback;
+    private Unbinder mUnbinder;
 
     public MoviesListingFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Callback) {
+            mCallback = (Callback) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
@@ -38,19 +53,22 @@ public class MoviesListingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
-
+        mUnbinder = ButterKnife.bind(this, rootView);
+        // init view for two pane mode
         return rootView;
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof Callback) {
-            mCallback = (Callback) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // set View for presenter
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // destroy presenter
+        mUnbinder.unbind();
     }
 
     @Override
