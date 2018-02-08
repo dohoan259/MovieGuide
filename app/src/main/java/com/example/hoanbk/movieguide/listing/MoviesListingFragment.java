@@ -29,7 +29,7 @@ import butterknife.Unbinder;
  * to handle interaction events.
  */
 public class MoviesListingFragment extends Fragment
-        implements MoviesContract.MoviesListingView{
+        implements MoviesContract.IMoviesListingView {
 
     @BindView(R.id.movies_listing)
     RecyclerView mMoviesListing;

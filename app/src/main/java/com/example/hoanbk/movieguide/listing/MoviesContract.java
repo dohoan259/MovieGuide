@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface MoviesContract {
 
-    interface MoviesListingView {
+    interface IMoviesListingView
+    {
 
         void showMovies(List< Movie > movies);
 
@@ -19,5 +20,15 @@ public interface MoviesContract {
         void loadingFailed(String errorMessage);
 
         void onMovieClicked(Movie movie);
+    }
+
+    interface IMoviesListingPresenter
+    {
+
+        void displayMovies();
+
+        void setView(IMoviesListingView view);
+
+        void destroy();
     }
 }
