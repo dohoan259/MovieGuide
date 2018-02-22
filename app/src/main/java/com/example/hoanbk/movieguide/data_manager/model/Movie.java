@@ -1,4 +1,4 @@
-package com.example.hoanbk.movieguide.DataManager.model;
+package com.example.hoanbk.movieguide.data_manager.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

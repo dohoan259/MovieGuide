@@ -1,6 +1,6 @@
 package com.example.hoanbk.movieguide.listing;
 
-import com.example.hoanbk.movieguide.DataManager.model.Movie;
+import com.example.hoanbk.movieguide.data_manager.model.Movie;
 
 import java.util.List;
 

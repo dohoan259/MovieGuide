@@ -1,7 +1,10 @@
 package com.example.hoanbk.movieguide.favorites;
 
-import com.example.hoanbk.movieguide.DataManager.model.Movie;
+import com.example.hoanbk.movieguide.data_manager.model.Movie;
+import com.example.hoanbk.movieguide.data_manager.movies.IMoviesRepository;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,25 +13,33 @@ import java.util.List;
 
 public class FavoritesInteractor implements IFavoritesInteractor{
 
+    private IMoviesRepository mMoviesRepository;
 
+    public FavoritesInteractor(IMoviesRepository moviesRepository) {
+        mMoviesRepository = moviesRepository;
+    }
 
     @Override
     public void setFavorite(Movie movie) {
-
+        mMoviesRepository.setFavorite(movie);
     }
 
     @Override
     public boolean isFavorite(String id) {
-        return false;
+        return mMoviesRepository.isFavorite(id);
     }
 
     @Override
     public List<Movie> getFavorites() {
-        return null;
+        try{
+            return mMoviesRepository.getFavorites();
+        } catch (IOException e) {
+            return new ArrayList<>(0);
+        }
     }
 
     @Override
     public void unFavorite(String id) {
-
+        mMoviesRepository.unFavorite(id);
     }
 }

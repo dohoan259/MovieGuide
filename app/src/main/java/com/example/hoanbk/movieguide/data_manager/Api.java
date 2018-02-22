@@ -1,4 +1,4 @@
-package com.example.hoanbk.movieguide.DataManager;
+package com.example.hoanbk.movieguide.data_manager;
 
 /**
  * Created by hoanbk on 02/02/2018.

@@ -17,8 +17,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.hoanbk.movieguide.DataManager.Api;
-import com.example.hoanbk.movieguide.DataManager.model.Movie;
+import com.example.hoanbk.movieguide.data_manager.Api;
+import com.example.hoanbk.movieguide.data_manager.model.Movie;
 import com.example.hoanbk.movieguide.R;
 
 import java.util.List;

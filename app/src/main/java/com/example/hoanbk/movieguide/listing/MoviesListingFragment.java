@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hoanbk.movieguide.DataManager.model.Movie;
+import com.example.hoanbk.movieguide.data_manager.model.Movie;
 import com.example.hoanbk.movieguide.R;
 
 import java.util.ArrayList;

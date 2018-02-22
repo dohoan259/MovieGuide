@@ -1,9 +1,9 @@
-package com.example.hoanbk.movieguide.DataManager.movies;
+package com.example.hoanbk.movieguide.data_manager.movies;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
-import com.example.hoanbk.movieguide.DataManager.model.Movie;
+import com.example.hoanbk.movieguide.data_manager.model.Movie;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.inject.Inject;
 
 /**
  * Created by hoanbk on 05/02/2018.
@@ -20,6 +22,7 @@ public class MoviesRepository implements IMoviesRepository {
 
     private SharedPreferences mPreferences;
 
+    @Inject
     public MoviesRepository(SharedPreferences preferences) {
         mPreferences = preferences;
     }
@@ -42,7 +45,7 @@ public class MoviesRepository implements IMoviesRepository {
     }
 
     @Override
-    public List<Movie> getFavorites() {
+    public List<Movie> getFavorites() throws IOException{
         Map<String, ?> allEntries = mPreferences.getAll();
         List<Movie> movies = new ArrayList<>(24);
         Moshi moshi = new Moshi.Builder().build();
